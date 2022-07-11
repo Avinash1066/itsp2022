@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+ {% block content %}
+ <div class="container">
+    <div class="row">
+        <div class="row g-4">
+            <div class="col-6">
+                <div class="p-3 border " style="background-color: #dbc9c9;">
+
+ <h2>{{wingcleaning.hostel}}</h2>
+ <h3>Room:{{wingcleaning.Room}}</h3>
+ <h3>Cleaning Shift:{{wingcleaning.shift}}</h3>
+ <h3>Time for cleaning:{{wingcleaning.timeapply}}</h3>
+ <a href="{% url 'wingcleaningdelete-page' object.id %}"><button type="button" class="btn btn-danger">Delete-record</button></a>
+ <a href="{% url 'wingcleaningupdate-page' object.id %}"><button type="button" class="btn btn-success">Update-record</button></a>
+</div>
+</div>
+</div></div>
+</div>
+
+ 
+ {% endblock content %}
