@@ -19,10 +19,11 @@ from django.urls import path,include
 from itsp import views as itspviews
 from itsp.views import (usercleaning,cleaningdelete,cleaningdetail,
 cleaninglist,cleaningupdate,wingscleaning,wingcleaningdetail,
-wingcleaninglist,wingcleaningdelete,wingcleaningupdate)
+wingcleaninglist,wingcleaningdelete,wingcleaningupdate,cleaningdonelist)
 urlpatterns = [
     path('',itspviews.initial,name='home'),
     path('pho',cleaninglist.as_view(),name='cleaninglist-page'),
+    path('cleaningdone',cleaningdonelist.as_view(),name='cleaningdonelist-page'),
     path('wing',wingcleaninglist.as_view(),name='wingcleaninglist-page'),
     path('admin/', admin.site.urls),
     path("login",iitbviews.redirect_to_login,name='login'),
@@ -38,6 +39,7 @@ urlpatterns = [
     path('wingcleaning_detail/<int:pk>/',wingcleaningdetail.as_view(),name='wingcleaningdetail-page'),
     path('wingcleaning_detail/<int:pk>/delete/',wingcleaningdelete.as_view(),name='wingcleaningdelete-page'),
     path('wingcleaning_detail/<int:pk>/update/',wingcleaningupdate.as_view(),name='wingcleaningupdate-page'),
+    
 ]
 admin.site.site_header = "PHO  Admin"
 admin.site.site_title = "PHO Admin Portal"

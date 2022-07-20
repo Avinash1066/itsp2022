@@ -30,12 +30,13 @@ for i in range(101,500):
 
 
 class cleaning(models.Model):
-    hostel=models.CharField(max_length=20,choices=Hostel)
-    room=models.CharField(max_length=20)
+    hostel=models.CharField(null=True,max_length=20,choices=Hostel)
+    room=models.CharField(null=True,max_length=20)
+    Cleaning_done=models.BooleanField(null=True,default=False)
     
-    Contact_number=models.CharField(max_length=20)
-    date=models.DateField("Date of cleaning")
-    time=models.TimeField("Time of cleaning")
+    Contact_number=models.CharField(null=True,max_length=20)
+    date=models.DateField("Date of cleaning",null=True,)
+    time=models.TimeField("Time of cleaning",null=True,)
     name=models.ForeignKey(User,on_delete=models.CASCADE)
     timeapply=models.DateTimeField(auto_now_add=True)
     class Meta:

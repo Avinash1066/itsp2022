@@ -69,7 +69,11 @@ class cleaninglist(ListView):
     ordering=['-timeapply']
     context_object_name='cleanings'
     template_name='index.html'
-
+class cleaningdonelist(ListView):
+    model=cleaning
+    ordering=['-timeapply']
+    context_object_name='cleanings'
+    template_name='itsp/cleaningdone.html'
 
 
 class cleaningdetail(LoginRequiredMixin,UserPassesTestMixin,DetailView):
